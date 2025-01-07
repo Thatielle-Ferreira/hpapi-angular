@@ -7,7 +7,7 @@ import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
 import { MatProgressSpinnerModule            } from '@angular/material/progress-spinner';
 import { HpapiService                        } from '../../services/hpapi.service';
-import { StaffData                           } from './professores.component.models';
+import { StaffData                           } from '../../interfaces/models/professores';
 
 @Component({
   selector   : 'app-professores',

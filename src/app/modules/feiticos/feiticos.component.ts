@@ -7,7 +7,7 @@ import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
 import { MatProgressSpinnerModule            } from '@angular/material/progress-spinner';
 import { HpapiService                        } from '../../services/hpapi.service';
-import { SpellsData                          } from './feiticos.component.models';
+import { SpellsData                          } from '../../interfaces/models/feiticos';
 
 @Component({
   selector   : 'app-feiticos',
