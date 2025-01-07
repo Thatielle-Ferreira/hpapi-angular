@@ -5,21 +5,7 @@ import { MatSort, MatSortModule              } from '@angular/material/sort';
 import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
 import { HpapiService                        } from '../../services/hpapi.service';
-
-export interface CharactersData {
-  id             : number;
-  name           : string;
-  actor          : string;
-  gender         : string;
-  ancestry       : string;
-  house          : string;
-  species        : string;
-  wizard         : string;
-  patronus       : string;
-  wand           : string;
-  hogwartsStaff  : boolean;
-  hogwartsStudent: boolean;
-}
+import { CharactersData                      } from './personagens.component.models'
 
 @Component({
   selector   : 'app-personagens',
