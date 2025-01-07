@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  hpapi-angular: # Nome do serviço
+    build: # Define que o serviço será construído a partir do Dockerfile
+      context: . # Caminho onde está o Dockerfile
+      dockerfile: Dockerfile
+    container_name: front-hpapi-angular # Nome do contêiner para facilitar a identificação
+    ports:
+      - 4200:4200 # Mapeia a porta 4200 do contêiner para a 4200 do host
+    volumes:
+      - .:/var/www/app/front-hpapi-angular:rw # Mapeamento do volume para refletir as mudanças
+      - /var/www/app/front-hpapi-angular/node_modules # Evita que os módulos node do contêiner sejam sobrescritos
+    networks:
+      - hpapi-angular # Cria uma rede específica
+
+networks:
+  hpapi-angular:
+    driver: bridge
