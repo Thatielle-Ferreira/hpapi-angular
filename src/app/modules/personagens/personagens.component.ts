@@ -7,7 +7,7 @@ import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
 import { MatProgressSpinnerModule            } from '@angular/material/progress-spinner';
 import { HpapiService                        } from '../../services/hpapi.service';
-import { CharactersData                      } from './personagens.component.models'
+import { CharactersData                      } from './personagens.component.models';
 
 @Component({
   selector   : 'app-personagens',
