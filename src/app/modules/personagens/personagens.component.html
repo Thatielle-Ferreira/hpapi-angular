@@ -1,1 +1,88 @@
-<p>personagens works!</p>
+<div style="width: 100%; display: flex; justify-content: center; padding: 50px 0 0 0;">
+  <div style="width: 85%;">
+    <mat-form-field>
+      <mat-label>Filtros</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Harry" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- NOME -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <!-- ATOR -->
+      <ng-container matColumnDef="actor">
+        <th mat-header-cell *matHeaderCellDef> Ator </th>
+        <td mat-cell *matCellDef="let row"> {{row.actor}} </td>
+      </ng-container>
+
+      <!-- GÊNERO -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gênero </th>
+        <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+      </ng-container>
+
+      <!-- ANCESTRAL -->
+      <ng-container matColumnDef="ancestry">
+        <th mat-header-cell *matHeaderCellDef> Ancestral </th>
+        <td mat-cell *matCellDef="let row"> {{row.ancestry}} </td>
+      </ng-container>
+
+      <!-- CASA -->
+      <ng-container matColumnDef="house">
+        <th mat-header-cell *matHeaderCellDef> Casa </th>
+        <td mat-cell *matCellDef="let row"> {{row.house}} </td>
+      </ng-container>
+
+      <!-- ESPÉCIE -->
+      <ng-container matColumnDef="species">
+        <th mat-header-cell *matHeaderCellDef> Espécie </th>
+        <td mat-cell *matCellDef="let row"> {{row.species}} </td>
+      </ng-container>
+
+      <!-- FEITICEIRO -->
+      <ng-container matColumnDef="wizard">
+        <th mat-header-cell *matHeaderCellDef> Feiticeiro </th>
+        <td mat-cell *matCellDef="let row"> {{row.wizard}} </td>
+      </ng-container>
+
+      <!-- PATRONO -->
+      <ng-container matColumnDef="patronus">
+        <th mat-header-cell *matHeaderCellDef> Patrono </th>
+        <td mat-cell *matCellDef="let row"> {{row.patronus}} </td>
+      </ng-container>
+
+      <!-- VARINHA -->
+      <ng-container matColumnDef="wand">
+        <th mat-header-cell *matHeaderCellDef> Varinha </th>
+        <td mat-cell *matCellDef="let row"> {{row.wand.core}} </td>
+      </ng-container>
+
+      <!-- PROFESSOR? -->
+      <ng-container matColumnDef="hogwartsStaff">
+        <th mat-header-cell *matHeaderCellDef> Professor? </th>
+        <td mat-cell *matCellDef="let row"> {{row.hogwartsStaff}} </td>
+      </ng-container>
+
+      <!-- ESTUDANTE? -->
+      <ng-container matColumnDef="hogwartsStudent">
+        <th mat-header-cell *matHeaderCellDef> Estudante? </th>
+        <td mat-cell *matCellDef="let row"> {{row.hogwartsStudent}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- ROW SHOWN WHEN THERE IS NO MATCHING DATA. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
