@@ -1,9 +1,10 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule  } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule    } from '@angular/material/paginator';
+import { MatSort, MatSortModule              } from '@angular/material/sort';
 import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
 import { HpapiService                        } from '../../services/hpapi.service';
-import { MatPaginator, MatPaginatorModule    } from '@angular/material/paginator';
 
 export interface CharactersData {
   id             : number;
@@ -22,7 +23,7 @@ export interface CharactersData {
 
 @Component({
   selector   : 'app-personagens',
-  imports    : [ MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule ],
+  imports    : [ MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule ],
   templateUrl: './personagens.component.html',
   styleUrl   : './personagens.component.scss'
 })
@@ -32,6 +33,7 @@ export class PersonagensComponent implements AfterViewInit {
   dataSource      = new MatTableDataSource<CharactersData>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort)      sort!     : MatSort;
 
   constructor (
     private hpapiService: HpapiService
@@ -41,6 +43,7 @@ export class PersonagensComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -57,8 +60,9 @@ export class PersonagensComponent implements AfterViewInit {
     this.hpapiService.get('listarPersonagens').subscribe({
       next: (result) => {
         result.map((item: any, index: number) => item.id = index + 1);
-        this.dataSource.data = result;
+        this.dataSource.data      = result;
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort      = this.sort;
       },
       error: (erro) => console.error(erro)
     });
