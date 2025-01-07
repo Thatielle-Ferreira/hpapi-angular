@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  background-image   : url(../src/assets/images/horizons_village.png), url(../src/assets/images/stars.png), linear-gradient(180deg, #15111d, #323657 121.35%);
+  background-position: center 100%, 50%, bottom;
+  background-repeat  : no-repeat;
+  background-size    : 2000px auto, 2000px auto, 100% 100%;
+  color              : white;
+}
+
