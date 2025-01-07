@@ -1,1 +1,43 @@
-<p>feiticos works!</p>
+<div style="width: 100%; display: flex; justify-content: center; padding: 50px 0 110px 0;">
+
+  <mat-spinner *ngIf="snLoad"></mat-spinner>
+
+  <div [hidden]="snLoad" style="width: 85%;">
+    <mat-form-field>
+      <mat-label>Filtros</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Harry" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <!-- ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- NOME -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <!-- DESCRIÇÃO -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- ROW SHOWN WHEN THERE IS NO MATCHING DATA. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 50, 100, 9999]" showFirstLastButtons></mat-paginator>
+
+  </div>
+</div>
