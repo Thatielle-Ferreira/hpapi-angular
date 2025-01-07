@@ -1,5 +1,8 @@
 <div style="width: 100%; display: flex; justify-content: center; padding: 50px 0 110px 0;">
-  <div style="width: 85%;">
+
+  <mat-spinner *ngIf="snLoad"></mat-spinner>
+
+  <div [hidden]="snLoad" style="width: 85%;">
     <mat-form-field>
       <mat-label>Filtros</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Harry" #input>

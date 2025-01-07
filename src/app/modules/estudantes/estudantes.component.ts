@@ -1,15 +1,17 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { CommonModule                        } from '@angular/common';
 import { MatTableDataSource, MatTableModule  } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule    } from '@angular/material/paginator';
 import { MatSort, MatSortModule              } from '@angular/material/sort';
 import { MatInputModule                      } from '@angular/material/input';
 import { MatFormFieldModule                  } from '@angular/material/form-field';
+import { MatProgressSpinnerModule            } from '@angular/material/progress-spinner';
 import { HpapiService                        } from '../../services/hpapi.service';
 import { StudentsData                        } from './estudantes.component.models'
 
 @Component({
   selector   : 'app-estudantes',
-  imports    : [ MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule ],
+  imports    : [ MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatProgressSpinnerModule, CommonModule ],
   templateUrl: './estudantes.component.html',
   styleUrl   : './estudantes.component.scss'
 })
@@ -20,6 +22,8 @@ export class EstudantesComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort)      sort!     : MatSort;
+
+  snLoad = true;
 
   constructor (
     private hpapiService: HpapiService
@@ -49,6 +53,7 @@ export class EstudantesComponent implements AfterViewInit {
         this.dataSource.data      = result;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort      = this.sort;
+        this.snLoad               = false;
       },
       error: (erro) => console.error(erro)
     });
