@@ -1,0 +1,94 @@
+
+<div style="width: 100%; display: flex; justify-content: center; padding: 50px 0 110px 0;">
+
+  <div *ngIf="arCharacters.length > 0" class="card-container">
+    <div *ngFor="let character of arCharacters" class="card">
+      <mat-card class="card" appearance="outlined">
+        <mat-card-header class="name">
+          <mat-card-title>{{character.name}}</mat-card-title>
+        </mat-card-header>
+        <img class="imageCharacter" src="{{character.image}}" alt="{{character.name}}">
+        <mat-card-content>
+          <div class="table-responsive">
+            <table id="table" class="table table-bordered table-hover">
+              <tbody>
+                <tr style="height: 100px;">
+                  <td class="titles">Alternate Names</td>
+                  <td class="info">{{character.alternate_names}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Species</td>
+                  <td class="info">{{character.species}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Gender</td>
+                  <td class="info" [ngClass]="character.gender">{{ character.gender === 'male' ? '&#x2642;' : '&#9792;' }}</td>
+                </tr>
+                <tr>
+                  <td class="titles">House</td>
+                  <td class="info" [ngClass]="character.house">{{character.house}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Date of Birth</td>
+                  <td class="info">31-07-1980</td>
+                </tr>
+                <tr>
+                  <td class="titles">Year of Birth</td>
+                  <td class="info">1980</td>
+                </tr>
+                <tr>
+                  <td class="titles">Wizard</td>
+                  <td class="info">true</td>
+                </tr>
+                <tr>
+                  <td class="titles">Ancestry</td>
+                  <td class="info">half-blood</td>
+                </tr>
+                <tr>
+                  <td class="titles">Eye colour</td>
+                  <td class="info" [ngClass]="character.eyeColour">{{character.eyeColour}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Hair colour</td>
+                  <td class="info" [ngClass]="character.hairColour">{{character.hairColour}}</td>
+                </tr>
+                <tr>
+                  <td class="titles" style="padding-top: 2em; padding-bottom: 2em;">Wand</td>
+                  <td class="info">
+                    {{character.wand.wood}}
+                    <br>
+                    {{character.wand.core}}
+                    <br>
+                    {{character.wand.length}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="titles">Patronus</td>
+                  <td class="info">{{character.patronus}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Hogwarts Student</td>
+                  <td class="info" [ngClass]="character.hogwartsStudent ? 'green' : 'red'">{{ character.hogwartsStudent === true ? '✔' : '✖' }}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Hogwarts Staff</td>
+                  <td class="info" [ngClass]="character.hogwartsStaff ? 'green' : 'red'">{{ character.hogwartsStaff === true ? '✔' : '✖' }}</td>
+                </tr>
+                <tr>
+                  <td class="titles" style="height: 50px;">Actor</td>
+                  <td class="info">{{character.actor}}</td>
+                </tr>
+                <tr>
+                  <td class="titles">Alive</td>
+                  <td class="info" [ngClass]="character.alive ? 'green' : 'red'">{{ character.alive === true ? '✔' : '✖' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+

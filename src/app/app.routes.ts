@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 // COMPONENTES
 import { HeaderComponent      } from './components/header/header.component';
 import { HomeComponent        } from './modules/home/home.component';
+import { DestaquesComponent   } from './modules/destaques/destaques.component';
 import { PersonagensComponent } from './modules/personagens/personagens.component';
 import { EstudantesComponent  } from './modules/estudantes/estudantes.component';
 import { ProfessoresComponent } from './modules/professores/professores.component';
@@ -14,6 +15,7 @@ export const routes: Routes = [
     component: HeaderComponent,
     children: [
         { path: 'home'        , component: HomeComponent        }
+      , { path: 'destaques'   , component: DestaquesComponent   }
       , { path: 'personagens' , component: PersonagensComponent }
       , { path: 'alunos'      , component: EstudantesComponent  }
       , { path: 'professores' , component: ProfessoresComponent }

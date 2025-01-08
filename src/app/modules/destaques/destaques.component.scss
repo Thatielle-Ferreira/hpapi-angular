@@ -1,0 +1,114 @@
+.card {
+  width           : 355px;
+  border-radius   : 10px;
+  background-color: #F1E6BA;
+  color           : black;
+}
+
+.card-container {
+  display        : flex;
+  flex-wrap      : wrap; /* Permite que os itens quebrem para a próxima linha */
+  gap            : 16px; /* Espaçamento entre os cards */
+  justify-content: center;
+}
+
+.name {
+  padding         : 8px 0px;
+  background-color: #312823;
+  border-radius   : 8px 8px 0 0;
+  text-align      : center ;
+  color           : white;
+}
+
+mat-card-title {
+  font-family: 'BluuNextBoldItalic', serif !important;
+  font-size  : 2em;
+  font-weight: 600;
+  width      : 355px;
+}
+
+.imageCharacter {
+  width         : 200px;
+  height        : 279px;
+  padding-bottom: 1em;
+  align-self    : center;
+  padding       : 20px 0;
+}
+
+#table {
+  border: 2px solid black;
+  width : 100%;
+}
+
+#table td {
+  border: 1px solid black;
+}
+
+.titles {
+  font-family: serif;
+  width      : 120px;
+}
+
+.info {
+  text-align : center;
+  font-family: 'BluuNextBoldItalic', serif !important;
+  word-break : break-word;
+}
+
+.male {
+  color: #0000ff;
+  font-size: 1.2em;
+}
+
+.female {
+  color: #ff3399;
+  font-size: 1.2em;
+}
+
+.Gryffindor {
+  color           : #FFC500;
+  background-color: #7F0909;
+}
+
+.Ravenclaw {
+  color           : #000A90;
+  background-color: #946B2D;
+}
+
+.Hufflepuff {
+  color           : #EEE117;
+  background-color: #000000;
+}
+
+.Slytherin {
+  color           : #0D6217;
+  background-color: #AAAAAA;
+}
+
+.green {
+ color: green;
+}
+
+.brown {
+ color: brown;
+}
+
+.blue {
+ color: blue;
+}
+
+.grey {
+ color: grey;
+}
+
+.red {
+ color: red;
+}
+
+.yellow {
+ color: #b3b300;
+}
+
+.black {
+  color: black;
+}
